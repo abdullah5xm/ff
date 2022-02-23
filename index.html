@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/favicon.png">
+	<title>Finding Factor</title>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: sans-serif;
+		}
+
+		div{
+			width: 70%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			text-align: center;
+		}
+
+		input{
+			padding: 10px;
+			font-size: 17px;
+		}
+		button{
+			padding: 10px;
+		}
+		#dem span,#leng span{
+			color:red;
+		}
+		.title{
+			text-align: center;
+			padding: 5px;
+			background: #353353;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<p class="title">Finding Factors</p>
+	<div>
+		<input placeholder="Write here any number" id="demo" type="number"/>
+		<button onclick="check()">Check</button>
+		<p id="dem"></p>
+		<p id="leng"></p>
+	</div>
+	<script>
+		function check(){
+			var m = 0;
+			let n = Number(document.getElementById("demo").value);
+			let text = "";
+			for(var i = n; i > 0; i--){
+				if(n%i==0){
+					if(i==1){
+						text+=i;
+						m =text.split(",").length;
+						break;
+					}
+					text+=i + ",";
+
+				}
+			}
+			document.getElementById("dem").innerHTML = "Factors of <b><span>"+n+"</span></b> are <b>" + text+"</b>";
+
+			document.getElementById("leng").innerHTML = "Total factors count : <span>"+ m + "</span>";
+		}
+	</script>
+	
+</body>
+</html>
